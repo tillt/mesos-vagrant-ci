@@ -1,5 +1,5 @@
 # First, ignore yourself.
-#.gitignore
+.gitignore
 
 # Files created by ./bootstrap.
 Makefile.in

@@ -15,7 +15,7 @@ GIT_CHECKOUT="$4"
 
 printf "\nControlling platform $1\n"
 
-STEP=1
+STEP=0
 
 STEP_NAMES=('non ssl, user, check' 	\
 	    'non ssl, root, check' 	\
@@ -32,16 +32,16 @@ function finish {
 
 function step_it {
 	case ${STEP} in
-	1)	../configure
+	0)	../configure
 		make -j$VAGRANT_CPUS check
 		;;
-	2)	sudo ./bin/mesos-tests.sh
+	1)	sudo ./bin/mesos-tests.sh
 		;;
-	3)	make clean
+	2)	make clean
 		../configure --enable-libevent --enable-ssl
 		make -j$VAGRANT_CPUS check
 		;;
-	4)	sudo ./bin/mesos-tests.sh
+	3)	sudo ./bin/mesos-tests.sh
 		;;
 	*)	echo 'invalid phase'
 		exit 1
@@ -66,7 +66,7 @@ fi
 
 cd build
 
-while [ ${STEP} -lt 5 ]; do
+while [ ${STEP} -lt 4 ]; do
 	echo "${PREFIX} running step \"${STEP_NAMES[$STEP]}\""
 	read -rsp $'Press any key to continue...\n' -n1 key
 	step_it

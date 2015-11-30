@@ -37,6 +37,8 @@ Vagrant.configure(2) do |config|
     # Install latest Docker.
     sudo wget -qO- https://get.docker.com/ | sh
 
+    sudo docker info
+
     # Enable memory and swap cgroups.
     sudo echo "GRUB_CMDLINE_LINUX_DEFAULT=\"cgroup_enable=memory swapaccount=1\"" >>/etc/default/grub
     sudo grub-mkconfig -o /boot/grub/grub.cfg "$@"

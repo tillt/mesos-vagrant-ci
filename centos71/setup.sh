@@ -36,7 +36,7 @@ Vagrant.configure(2) do |config|
      sudo yum install -y git
 
      sudo yum install -y docker
-     sudo systemctl enable docker
+     sudo chkconfig docker on
      sudo service docker start
      sudo docker info
   SHELL

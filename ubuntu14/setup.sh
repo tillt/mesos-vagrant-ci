@@ -27,13 +27,13 @@ Vagrant.configure(2) do |config|
   config.vm.provision "file", source: "../test.sh", destination: "~/test.sh"
 
   config.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get update
-    sudo apt-get -y install openjdk-7-jdk autoconf libtool
-    sudo apt-get -y install build-essential python-dev python-boto          \
-                            libcurl4-nss-dev libsasl2-dev maven             \
-                            libapr1-dev libsvn-dev libssl-dev libevent-dev
-    sudo apt-get -y install git
-    sudo wget -qO- https://get.docker.com/ | sh
+    apt-get update
+    apt-get -y install openjdk-7-jdk autoconf libtool
+    apt-get -y install build-essential python-dev python-boto          \
+                       libcurl4-nss-dev libsasl2-dev maven             \
+                       libapr1-dev libsvn-dev libssl-dev libevent-dev
+    apt-get -y install git
+    wget -qO- https://get.docker.com/ | sh
   SHELL
 end
 EOF

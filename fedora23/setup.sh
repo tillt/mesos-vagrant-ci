@@ -10,11 +10,11 @@ Vagrant.configure(2) do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.memory = $VAGRANT_MEM
     vb.cpus = $VAGRANT_CPUS
-    v.customize [
+    vb.customize [
       "modifyvm", :id,
-      "--nictype", "virtio"
-      "--natdnshostresolver1", "on"
-      "--natdnsproxy1", "on"
+      "--nictype1", "virtio",
+      "--natdnshostresolver1", "on",
+      "--natdnsproxy1", "on",
       "--paravirtprovider", "kvm"
     ]
   end

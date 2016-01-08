@@ -2,9 +2,9 @@
 set -e
 
 export VAGRANT_CPUS=4
-export VAGRANT_MEM=9000
-export GIT_REPO="git@github.com:mesosphere/mesos-private.git"
-export GIT_CHECKOUT="till/0.26.0-rc3_wip"
+export VAGRANT_MEM=8192
+export GIT_REPO="git@github.com:apache/mesos.git"
+export GIT_CHECKOUT="master"
 
 # export VAGRANT_CPUS=8
 # export VAGRANT_MEM=16384

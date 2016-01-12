@@ -5,7 +5,7 @@ Vagrant.configure(2) do |config|
   # Disable shared folder to prevent certain kernel module dependencies.
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
-  config.vm.box = "box-cutter/fedora23"
+  config.vm.box = "bento/fedora-23"
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = $VAGRANT_MEM

@@ -4,7 +4,7 @@ cat << EOF > Vagrantfile
 Vagrant.configure(2) do |config|
   config.vm.hostname = "$PLATFORM_NAME"
 
-  config.vm.box = "boxcutter/centos66"
+  config.vm.box = "bento/centos-6.7"
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = $VAGRANT_MEM

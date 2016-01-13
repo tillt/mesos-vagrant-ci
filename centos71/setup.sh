@@ -25,20 +25,20 @@ Vagrant.configure(2) do |config|
   config.vm.provision "file", source: "../test.sh", destination: "~/test.sh"
 
   config.vm.provision "shell", inline: <<-SHELL
-     sudo yum -y update systemd
-     sudo yum -y install tar wget
-     sudo yum groupinstall -y "Development Tools"
-     sudo yum install -y maven python-devel java-1.7.0-openjdk-devel 	   \
-     			 zlib-devel libcurl-devel openssl-devel 	   \
-     			 cyrus-sasl-devel cyrus-sasl-md5 apr-devel 	   \
-     			 subversion-devel apr-util-devel libevent-devel
+     yum -y update systemd
+     yum -y install tar wget
+     yum groupinstall -y "Development Tools"
+     yum install -y maven python-devel java-1.7.0-openjdk-devel    \
+                    zlib-devel libcurl-devel openssl-devel         \
+                    cyrus-sasl-devel cyrus-sasl-md5 apr-devel      \
+                    subversion-devel apr-util-devel libevent-devel
 
-     sudo yum install -y git
+     yum install -y git
 
-     sudo yum install -y docker
-     sudo chkconfig docker on
-     sudo service docker start
-     sudo docker info
+     yum install -y docker
+     chkconfig docker on
+     service docker start
+     docker info
   SHELL
 end
 EOF

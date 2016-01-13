@@ -26,22 +26,22 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
     # Update the entire system.
-    sudo apt-get update
+    apt-get update
 
     # Install Mesos dependecies.
-    sudo apt-get install -y openjdk-7-jdk autoconf libtool
-    sudo apt-get install -y build-essential python-dev python-boto 	      \
-    			    libcurl4-nss-dev libsasl2-dev maven libapr1-dev   \
-    			    libsvn-dev libssl-dev libevent-dev
+    apt-get install -y openjdk-7-jdk autoconf libtool
+    apt-get install -y build-essential python-dev python-boto          \
+                       libcurl4-nss-dev libsasl2-dev maven libapr1-dev \
+                       libsvn-dev libssl-dev libevent-dev
 
     # Install latest Docker.
-    sudo wget -qO- https://get.docker.com/ | sh
+    wget -qO- https://get.docker.com/ | sh
 
-    sudo docker info
+    docker info
 
     # Enable memory and swap cgroups.
-    sudo echo "GRUB_CMDLINE_LINUX_DEFAULT=\"cgroup_enable=memory swapaccount=1\"" >>/etc/default/grub
-    sudo grub-mkconfig -o /boot/grub/grub.cfg "$@"
+    echo "GRUB_CMDLINE_LINUX_DEFAULT=\"cgroup_enable=memory swapaccount=1\"" >>/etc/default/grub
+    grub-mkconfig -o /boot/grub/grub.cfg "$@"
   SHELL
 end
 EOF
